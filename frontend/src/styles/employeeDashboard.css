@@ -1,0 +1,90 @@
+/* EmployeeDashboard.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+
+.employee-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.employee-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #185a9d;
+}
+
+.profile-card {
+  padding: 20px;
+  background: #f4f6fb;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile-card button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #185a9d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.profile-card button:hover {
+  background-color: #43cea2;
+}
+
+.stats-section {
+  padding: 20px;
+  background: #eef4ff;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.rewards-section {
+  padding: 20px;
+  background: #f9f9fb;
+  border-radius: 10px;
+}
+
+.reward-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: box-shadow 0.3s;
+}
+
+.reward-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.achievements-section {
+  padding: 20px;
+  background: #fff4e6;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.achievements-section h3 {
+  margin-top: 0;
+}
+
+.achievement-card {
+  margin-bottom: 15px;
+}

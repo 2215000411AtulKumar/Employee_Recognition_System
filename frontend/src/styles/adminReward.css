@@ -1,0 +1,65 @@
+.edit-form {
+  margin-top: 30px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-form h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.edit-form select,
+.edit-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.edit-form select:focus,
+.edit-form input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.edit-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.edit-form button:hover {
+  background: linear-gradient(135deg, #5a6bcf, #6d48a8);
+  transform: translateY(-2px);
+}
+
+#default {
+  color: #999;
+  font-size: 15px;
+    font-style: italic;
+    font-weight: 400;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    transition: border-color 0.3s;
+    cursor: not-allowed;
+    pointer-events: none;
+}
