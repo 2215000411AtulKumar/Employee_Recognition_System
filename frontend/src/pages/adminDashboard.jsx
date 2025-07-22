@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import AdminReward from "./AdminReward";
-import Leaderboard from "./Leaderboard";
+import Leaderboard from "./leaderboard";
 import "../styles/AdminDashboard.css";
 
 function AdminDashboard() {

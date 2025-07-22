@@ -31,27 +31,24 @@ app.post("/register", async (req, res) => {
     }
 
     const newUser = new User({ firstName, lastName, username, email, password });
-    await newUser.save();
-    res.status(201).send("User registered successfully");
+    const savedUser = await newUser.save();
+    res.status(201).send({"message": "User registered successfully", "userId": savedUser._id});
   } catch (err) {
     res.status(400).send("Error: " + err);
   }
 });
 
 app.post("/login", async (req, res) => {
-
   const { email, password } = req.body;
-
   try {
     const user = await User.findOne({ email: email, password: password });
-
     if (!user) {
-      return res.status(400).send("Invalid credentials");
+      // Always return JSON for errors
+      return res.status(400).json({ message: "Invalid credentials" });
     }
-
-    res.send("Login successful");
+    res.json({ message: "Login successful", userId: user._id });
   } catch (err) {
-    res.status(500).send("Server error: " + err);
+    res.status(500).json({ message: "Server error: " + err });
   }
 });
 
