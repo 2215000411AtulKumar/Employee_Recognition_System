@@ -1,0 +1,17 @@
+.employee-container {
+  padding: 20px;
+  font-family: Arial;
+}
+
+.employee-nav-buttons button {
+  margin: 10px 10px 20px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.profile-card {
+  background-color: #f9f9f9;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
