@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
-  role: { type: String, enum: ["employee", "admin"], default: "employee" },
   points: { type: Number, default: 0 },
   rewards: [rewardSchema], 
 });

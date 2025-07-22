@@ -5,7 +5,6 @@ import Register from "./pages/register.jsx";
 import AdminDashboard from "./pages/adminDashboard.jsx";
 import EmployeeDashboard from "./pages/employeeDashboard.jsx";
 import Leaderboard from "./pages/leaderboard.jsx";
-import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 
 function App() {
   return (
@@ -14,24 +13,10 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/employee" element={<EmployeeDashboard />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
 
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute allowedRoles={["admin"]}>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/employee"
-          element={
-            <ProtectedRoute allowedRoles={["employee"]}>
-              <EmployeeDashboard />
-            </ProtectedRoute>
-          }
-        />
       </Routes>
     </Router>
   );

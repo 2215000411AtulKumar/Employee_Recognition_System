@@ -1,9 +1,7 @@
 import '../styles/LoginRegister.css'
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Login() {
-    const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
@@ -25,11 +23,8 @@ function Login() {
 
             if (response.ok && result.userId) {
                 localStorage.setItem("userId", result.userId);
-                localStorage.setItem("role", result.role);
                 alert(result.message);
-                
-                if(result.role === "admin") navigate("/admin");
-                else navigate("/employee");
+                // Optionally redirect to dashboard here
             } else {
                 alert(result.message || "Login failed");
             }

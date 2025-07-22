@@ -1,8 +1,6 @@
 import '../styles/LoginRegister.css'
-import { useState } from 'react';
 
 function Register() {
-  const [role, setRole] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -12,7 +10,6 @@ function Register() {
       username: e.target.username.value,
       email: e.target.register_email.value,
       password: e.target.register_password.value,
-      role:e.target.role.value,
     };
 
     // Confirm password check
@@ -27,12 +24,10 @@ function Register() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
-      
     });
-    
-    const result = await response.text();
-    
-    alert(result.message || "Register Successfully");
+
+    const msg = await response.text();
+    alert(msg);
 
     e.target.reset();
   };
@@ -65,13 +60,6 @@ function Register() {
           <div className="form-group">
             <label htmlFor="confirm_password">Confirm Password</label>
             <input type="password" id="confirm_password" name="confirm_password" required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="role">Role</label>
-            <select name="role" id="role" value={role} onChange={(e) => setRole(e.target.value)} required>
-              <option name="role" value="employee">Employee</option>
-              <option name="role" value="admin">Admin</option>
-            </select>
           </div>
           <button type="submit">Register</button>
         </form>

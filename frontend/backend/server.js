@@ -14,46 +14,43 @@ mongoose.connect("mongodb://127.0.0.1:27017/employee_db", {
 });
 
 app.post("/register", async (req, res) => {
-  const { firstName, lastName, username, email, password, role, } = req.body;
+
+  const { firstName, lastName, username, email, password } = req.body;
 
   try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).send("User with this email already exists");
+    // Check email
+    const existingUser = await User.findOne({ email: email });
+    if (existingUser) {
+      return res.status(400).send("User with this email already exists");
+    }
 
-    const existingUsername = await User.findOne({ username });
-    if (existingUsername) return res.status(400).send("Username already taken");
+    // Check username
+    const existingUsername = await User.findOne({ username: username });
+    if (existingUsername) {
+      return res.status(400).send("Username already taken");
+    }
 
-    const newUser = new User({ firstName, lastName, username, email, password, role }); // include role
+    const newUser = new User({ firstName, lastName, username, email, password });
     const savedUser = await newUser.save();
-
-  res.status(201).json({ 
-  message: "User registered successfully", 
-  userId: savedUser._id, 
-  role: savedUser.role 
-});
+    res.status(201).send({"message": "User registered successfully", "userId": savedUser._id});
   } catch (err) {
     res.status(400).send("Error: " + err);
   }
 });
 
-
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOne({ email, password });
-    console.log(user);
-    if (!user) return res.status(400).json({ message: "Invalid credentials" });
-
-  res.status(200).json({
-  message: "Login successful",
-  userId: user._id,
-  role: user.role,
-});
+    const user = await User.findOne({ email: email, password: password });
+    if (!user) {
+      // Always return JSON for errors
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+    res.json({ message: "Login successful", userId: user._id });
   } catch (err) {
     res.status(500).json({ message: "Server error: " + err });
   }
 });
-
 
 // Get all users
 app.get("/users", async (req, res) => {

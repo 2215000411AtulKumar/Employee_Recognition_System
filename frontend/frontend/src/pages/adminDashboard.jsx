@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import AdminReward from "./AdminReward";
 import Leaderboard from "./leaderboard";
-import Header from "../components/Header";
 import "../styles/AdminDashboard.css";
 
 function AdminDashboard() {
@@ -15,7 +14,6 @@ function AdminDashboard() {
     username: "",
     email: "",
     password: "",
-    role: "employee",
   });
 
   const fetchUsers = () => {
@@ -79,7 +77,6 @@ function AdminDashboard() {
           username: "",
           email: "",
           password: "",
-          role: "employee",
         });
         setShowAddForm(false);
         fetchUsers();
@@ -89,7 +86,7 @@ function AdminDashboard() {
 
   return (
     <div className="admin-container">
-      <Header userRole="admin" />
+      <h2>👑 Admin Dashboard</h2>
 
       <div className="admin-nav-buttons">
         <button onClick={() => setActivePage("users")}>All Users</button>
@@ -107,7 +104,6 @@ function AdminDashboard() {
                 <th>Last Name</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Role</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -118,7 +114,6 @@ function AdminDashboard() {
                   <td>{user.lastName}</td>
                   <td>{user.username}</td>
                   <td>{user.email}</td>
-                  <td>{user.role}</td>
                   <td>
                     <button onClick={() => startEdit(user)}>Edit</button>
                     <button onClick={() => deleteUser(user._id)}>Delete</button>
@@ -132,64 +127,41 @@ function AdminDashboard() {
             <div className="edit-form">
               <h3>Edit User</h3>
               <form onSubmit={handleUpdate}>
-                <select
-                  value={editUser.role}
-                  onChange={(e) =>
-                    setEditUser({ ...editUser, role: e.target.value })
-                  }
-                  required
-                >
-                  <option value="employee">Employee</option>
-                  <option value="admin">Admin</option>
-                </select>
                 <input
                   type="text"
                   value={editUser.firstName}
-                  onChange={(e) =>
-                    setEditUser({ ...editUser, firstName: e.target.value })
-                  }
+                  onChange={(e) => setEditUser({ ...editUser, firstName: e.target.value })}
                   placeholder="First Name"
                   required
                 />
                 <input
                   type="text"
                   value={editUser.lastName}
-                  onChange={(e) =>
-                    setEditUser({ ...editUser, lastName: e.target.value })
-                  }
+                  onChange={(e) => setEditUser({ ...editUser, lastName: e.target.value })}
                   placeholder="Last Name"
                   required
                 />
                 <input
                   type="text"
                   value={editUser.username}
-                  onChange={(e) =>
-                    setEditUser({ ...editUser, username: e.target.value })
-                  }
+                  onChange={(e) => setEditUser({ ...editUser, username: e.target.value })}
                   placeholder="Username"
                   required
                 />
                 <input
                   type="email"
                   value={editUser.email}
-                  onChange={(e) =>
-                    setEditUser({ ...editUser, email: e.target.value })
-                  }
+                  onChange={(e) => setEditUser({ ...editUser, email: e.target.value })}
                   placeholder="Email"
                   required
                 />
                 <button type="submit">Update User</button>
-                <button type="button" onClick={() => setEditUser(null)}>
-                  Cancel
-                </button>
+                <button type="button" onClick={() => setEditUser(null)}>Cancel</button>
               </form>
             </div>
           )}
 
-          <button
-            style={{ marginTop: "20px" }}
-            onClick={() => setShowAddForm(!showAddForm)}
-          >
+          <button style={{ marginTop: "20px" }} onClick={() => setShowAddForm(!showAddForm)}>
             {showAddForm ? "Close Add User Form" : "Add User"}
           </button>
 
@@ -197,58 +169,38 @@ function AdminDashboard() {
             <div className="edit-form">
               <h3>Add New User</h3>
               <form onSubmit={handleAddUser}>
-                <select
-                  value={newUser.role}
-                  onChange={(e) =>
-                    setNewUser({ ...newUser, role: e.target.value })
-                  }
-                  required
-                >
-                  <option value="employee">Employee</option>
-                  <option value="admin">Admin</option>
-                </select>
                 <input
                   type="text"
                   value={newUser.firstName}
-                  onChange={(e) =>
-                    setNewUser({ ...newUser, firstName: e.target.value })
-                  }
+                  onChange={(e) => setNewUser({ ...newUser, firstName: e.target.value })}
                   placeholder="First Name"
                   required
                 />
                 <input
                   type="text"
                   value={newUser.lastName}
-                  onChange={(e) =>
-                    setNewUser({ ...newUser, lastName: e.target.value })
-                  }
+                  onChange={(e) => setNewUser({ ...newUser, lastName: e.target.value })}
                   placeholder="Last Name"
                   required
                 />
                 <input
                   type="text"
                   value={newUser.username}
-                  onChange={(e) =>
-                    setNewUser({ ...newUser, username: e.target.value })
-                  }
+                  onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
                   placeholder="Username"
                   required
                 />
                 <input
                   type="email"
                   value={newUser.email}
-                  onChange={(e) =>
-                    setNewUser({ ...newUser, email: e.target.value })
-                  }
+                  onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
                   placeholder="Email"
                   required
                 />
                 <input
                   type="password"
                   value={newUser.password}
-                  onChange={(e) =>
-                    setNewUser({ ...newUser, password: e.target.value })
-                  }
+                  onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
                   placeholder="Password"
                   required
                 />

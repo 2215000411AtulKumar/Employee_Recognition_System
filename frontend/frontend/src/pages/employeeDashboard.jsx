@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import Leaderboard from "./leaderboard";
 import "../styles/employeeDashboard.css";
-import Header from "../components/Header";
-
 
 function EmployeeDashboard() {
   const [employee, setEmployee] = useState(null);
   const [activePage, setActivePage] = useState("profile");
 
   useEffect(() => {
+    // Assuming user ID is stored in localStorage after login
     const userId = localStorage.getItem("userId");
     if (!userId) return;
     fetch(`http://localhost:5000/user/${userId}`)
@@ -16,15 +15,15 @@ function EmployeeDashboard() {
       .then((data) => setEmployee(data))
       .catch((err) => {
         console.error("Failed to fetch employee data:", err);
-        setEmployee({});
+        setEmployee({}); // fallback to empty object to avoid infinite loading
       });
   }, []);
 
-  if (!employee) return <div>Loading employee data...</div>;
+if (!employee) return <div>Loading employee data...</div>;
 
   return (
     <div className="employee-container">
-      <Header userRole="employee" />
+      <h2>🙋 Employee Dashboard</h2>
 
       <div className="employee-nav-buttons">
         <button onClick={() => setActivePage("profile")}>My Profile</button>

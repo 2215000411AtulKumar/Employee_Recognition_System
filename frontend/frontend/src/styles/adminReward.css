@@ -15,7 +15,7 @@
   margin-bottom: 20px;
 }
 
-/* .edit-form select,
+.edit-form select,
 .edit-form input {
   display: block;
   width: 100%;
@@ -25,7 +25,7 @@
   border-radius: 8px;
   font-size: 15px;
   transition: border-color 0.3s;
-} */
+}
 
 .edit-form select:focus,
 .edit-form input:focus {
@@ -62,16 +62,4 @@
     transition: border-color 0.3s;
     cursor: not-allowed;
     pointer-events: none;
-}
-
-.edit-form select,
-.edit-form input {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: border-color 0.3s;
 }
