@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/AdminReward.css";
 
 function AdminReward({ users }) {
   const [selectedUser, setSelectedUser] = useState("");
